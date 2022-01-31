@@ -149,8 +149,7 @@ class NodeManager(object):
 
 
 class HostRSync(execnet.RSync):
-    """ RSyncer that filters out common files
-    """
+    """RSyncer that filters out common files"""
 
     def __init__(self, sourcedir, *args, **kwargs):
         self._synced = {}
@@ -291,7 +290,7 @@ class WorkerController(object):
             self._shutdown_sent = True
 
     def sendcommand(self, name, **kwargs):
-        """ send a named parametrized command to the other side. """
+        """send a named parametrized command to the other side."""
         self.log("sending command %s(**%s)" % (name, kwargs))
         self.channel.send((name, kwargs))
 
@@ -300,12 +299,12 @@ class WorkerController(object):
         self.putevent((eventname, kwargs))
 
     def process_from_remote(self, eventcall):  # noqa too complex
-        """ this gets called for each object we receive from
-            the other side and if the channel closes.
+        """this gets called for each object we receive from
+        the other side and if the channel closes.
 
-            Note that channel callbacks run in the receiver
-            thread of execnet gateways - we need to
-            avoid raising exceptions or doing heavy work.
+        Note that channel callbacks run in the receiver
+        thread of execnet gateways - we need to
+        avoid raising exceptions or doing heavy work.
         """
         try:
             if eventcall == self.ENDMARK:
