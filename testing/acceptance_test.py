@@ -731,8 +731,7 @@ def test_issue_594_random_parametrize(testdir):
 
 
 def test_tmpdir_disabled(testdir):
-    """Test xdist doesn't break if internal tmpdir plugin is disabled (#22).
-    """
+    """Test xdist doesn't break if internal tmpdir plugin is disabled (#22)."""
     p1 = testdir.makepyfile(
         """
         def test_ok():
@@ -746,8 +745,7 @@ def test_tmpdir_disabled(testdir):
 
 @pytest.mark.parametrize("plugin", ["xdist.looponfail", "xdist.boxed"])
 def test_sub_plugins_disabled(testdir, plugin):
-    """Test that xdist doesn't break if we disable any of its sub-plugins. (#32)
-    """
+    """Test that xdist doesn't break if we disable any of its sub-plugins. (#32)"""
     p1 = testdir.makepyfile(
         """
         def test_ok():
